@@ -13,7 +13,7 @@ class Data_description:
         while(1):
             
             try:
-                rows=input('Enter the number of rows(>0) (enter -1 to go back)')
+                rows=int(input('Enter the number of rows(>0) (enter -1 to go back).'))
 
                 if rows==-1:
                     break
@@ -49,7 +49,7 @@ class Data_description:
             while(1):
                 
                 try:
-                    choice = input("Select a Task (-1 to go back).")
+                    choice = int(input("Select a Task (-1 to go back)."))
                 except ValueError:
                     print("a valid integer must be entered...please try again")
                     continue
