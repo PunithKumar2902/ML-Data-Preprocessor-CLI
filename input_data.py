@@ -8,11 +8,11 @@ class Data_input:
     accepted_extensions=['.csv']
     
     # function to convert all the column names of any specific dataset into lowercase.
-    def to_lower_case(data):
+    def to_lower_case(self,data):
 
         for column in data.columns.values:
 
-            data.replace(columns={column : column.lower()},inplace = True)
+            data.replace({column : column.lower()},inplace = True)
 
         return data
 
@@ -21,7 +21,7 @@ class Data_input:
         
         try:
             
-            filename,extension= path.splittext(sys.argv[1])
+            filename,extension= path.splitext(sys.argv[1])
 
             if filename=="":
                 raise SystemExit("provide the DATASET name (with extension).")
