@@ -6,7 +6,7 @@ class Download:
         self.data = data
 
     # download the modified DataFrame as .csv file
-    def download(self):
+    def download(self,target):
         toBeDownload = {}
         for column in self.data.columns.values:
             toBeDownload[column] = self.data[column]
@@ -16,12 +16,16 @@ class Download:
             return
         newFileName = newFileName + ".csv"
         # index=False as this will not add an extra column of index.
-        pd.DataFrame(self.data).to_csv(newFileName, index = False)
+        ans=pd.DataFrame(self.data)
+       
+        ans= pd.concat([ans,target],axis=1)
+
+        ans.to_csv(newFileName, index = False)
         
-        print("Hurray!! It is done....\U0001F601")
+        print("Hurray!! It is done....")
         
         if input("Do you want to exit now? (y/n) ").lower() == 'y':
-            print("Exiting...\U0001F44B")
+            print("Exiting... ")
             exit()
         else:
             return
