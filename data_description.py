@@ -13,17 +13,17 @@ class Data_description:
         while(1):
             
             try:
-                rows=int(input('Enter the number of rows(>0) (enter -1 to go back)'))
+                rows=int(input('\nEnter the number of rows(>0) (enter -1 to go back)'))
 
                 if rows==-1:
                     break
                 if rows<=0:
-                    print(" no of rows must be > 0 ...please try again")
+                    print("\nno of rows must be > 0 ...please try again")
                     continue
                 print(self.data.head(rows))
 
             except ValueError:
-                print("a valid integer must be entered.....please try again")
+                print("\na valid integer must be entered.....please try again")
                 continue
             
             break
@@ -32,7 +32,7 @@ class Data_description:
     #function that prints all the columns
     def show_columns(self):
         
-        print("\n Columns: ")
+        print("\nColumns :-\n")
         for column in self.data.columns.values:
             print(column,end=" ")
 
@@ -41,7 +41,7 @@ class Data_description:
         while(1):
 
             
-            print("Tasks (Data Description :")
+            print("\nTasks (Data Description) :")
 
             for task in self.tasks:
                 print(task)
@@ -49,9 +49,9 @@ class Data_description:
             while(1):
                 
                 try:
-                    choice = int(input("Select a Task (-1 to go back)."))
+                    choice = int(input("\nSelect a Task (-1 to go back)."))
                 except ValueError:
-                    print("a valid integer must be entered...please try again")
+                    print("\na valid integer must be entered...please try again")
                     continue
                 break
 
@@ -61,16 +61,17 @@ class Data_description:
                 self.show_columns()
 
                 while(1):
-                    column=input('Please select a column').lower()
+                    column=input('\n\nPlease select a column : ')
 
                     try:
+                        print("\n***DESCRIPTION FOR SELECTED COLUMN***\n")
                         print(self.data[column].describe())
                     except KeyError:
-                        print("There is no column with the name....please try again")
+                        print("\nThere is no column with the name....please try again")
                         continue
                     break
             elif choice == 2:
-
+                print("\n")
                 print(self.data.describe())
                 print("\n\n")
                 print(self.data.info())
@@ -80,3 +81,5 @@ class Data_description:
                 self.show_dataset()
             else:
                 print("\nenter a value less than 4!!...please try again")
+
+                
