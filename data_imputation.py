@@ -10,7 +10,7 @@ class Data_imputation:
         "3. Fill Null Values (with mean)",
         "4. Fill Null Values (with median)",
         "5. Fill Null Values (with mode)",
-        "6. Show the Dataset"
+        "6. Show the Dataset\n"
     ]
 
     def __init__(self,data):
@@ -19,13 +19,13 @@ class Data_imputation:
     #function that prints all the columns
     def show_columns(self):
         
-        print("\n Columns: ")
+        print("\nColumns: ")
         for column in self.data.columns.values:
             print(column,end=" ")
 
     def printNULLvalues(self):
         
-        print("NULL values in the dataset are :")
+        print("\nNULL values in the dataset are :-\n")
         print(self.data.isnull().sum())
         print(" ")
 
@@ -35,12 +35,12 @@ class Data_imputation:
         self.show_columns()
         while(1):
 
-            columns=input("Enter the columns you want to delete (press -1 to go back )")
+            columns=input("\nEnter the columns you want to delete (press -1 to go back ) ")
 
             if(columns=="-1"):
                 break
 
-            choice=input("Are you sure(y/n)?")
+            choice=input("Are you sure(y/n)?  ")
 
             if choice.lower() =='y':
 
@@ -50,14 +50,14 @@ class Data_imputation:
                     print("!! One or more columns are not present..please try again")
                     continue
                 print(".........Done.........")
-                print("columns are deleted.")
+                print("columns are deleted.\n")
 
 
     def impute_mean(self):
         
-        self.showColumns()
+        self.show_columns()
         while(1):
-            column = input("\nEnter the column name:(Press -1 to go back)  ").lower()
+            column = input("\nEnter the column name:(Press -1 to go back)  ")
             if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -65,21 +65,21 @@ class Data_imputation:
                 try:
                     self.data[column] = self.data[column].fillna(self.data[column].mean())
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("\nColumn is not present. Try again.....\n")
                     continue
                 except TypeError:
                     # Imputation is only possible on some specific datatypes like int, float etc.
                     print("The Imputation is not possible here. Try on another column.")
                     continue
-                print("Done......")
+                print("Done......\n")
                 break
         return
 
     def impute_median(self):
 
-        self.showColumns()
+        self.show_columns()
         while(1):
-            column = input("\nEnter the column name:(Press -1 to go back)  ").lower()
+            column = input("\nEnter the column name:(Press -1 to go back)  ")
             if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -87,21 +87,21 @@ class Data_imputation:
                 try:
                     self.data[column] = self.data[column].fillna(self.data[column].median())
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("\nColumn is not present. Try again.....\n")
                     continue
                 except TypeError:
                     # Imputation is only possible on some specific datatypes like int, float etc.
-                    print("The Imputation is not possible here. Try on another column.")
+                    print("\nThe Imputation is not possible here. Try on another column.\n")
                     continue
-                print("Done......")
+                print("Done......\n")
                 break
         return
 
     def impute_mode(self):
 
-        self.showColumns()
+        self.show_columns()
         while(1):
-            column = input("\nEnter the column name:(Press -1 to go back)  ").lower()
+            column = input("\nEnter the column name:(Press -1 to go back)  ")
             if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -109,13 +109,13 @@ class Data_imputation:
                 try:
                     self.data[column] = self.data[column].fillna(self.data[column].mode()[0])
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("\nColumn is not present. Try again.....\n")
                     continue
                 except TypeError:
                     # Imputation is only possible on some specific datatypes like int, float etc.
                     print("The Imputation is not possible here. Try on another column.")
                     continue
-                print("Done......")
+                print("Done......\n")
                 break
         return
 
@@ -130,9 +130,9 @@ class Data_imputation:
             while(1):
                 
                 try:
-                    choice = int(input("Enter your choice(-1 to go back)"))
+                    choice = int(input("\nEnter your choice(-1 to go back)"))
                 except ValueError:
-                    print("a valid integer must be entered please try again....")
+                    print("\na valid integer must be entered please try again....\n")
                     continue
                 break
             if choice == -1:
@@ -151,10 +151,10 @@ class Data_imputation:
             elif choice == 5:
                 self.impute_mode()
             elif choice==6:
-                Data_description.show_dataset()
+                Data_description.show_dataset(self)
 
             else:
-                print("please enter a valid choice")
+                print("\nplease enter a valid choice and try again......\n")
 
         return self.data
             
