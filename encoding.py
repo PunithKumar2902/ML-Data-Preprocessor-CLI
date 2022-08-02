@@ -23,7 +23,7 @@ class Categorical:
     def encoding(self):
         categorical_columns = self.data.select_dtypes(include="object")
         while(1):
-            column = input("\nWhich column would you like to one hot encode?(Press -1 to go back)  ").lower()
+            column = input("\nWhich column would you like to one hot encode?(Press -1 to go back)  ")
             if column == "-1":
                 break
             # The encoding function is only for categorical columns.
@@ -66,7 +66,7 @@ class Categorical:
                 self.encoding()
 
             elif choice == 3:
-                Data_description.showDataset(self)
+                Data_description.show_dataset(self)
 
             else:
                 print("\nWrong Integer value!! Try again..")
