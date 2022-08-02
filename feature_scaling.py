@@ -48,7 +48,7 @@ class FeatureScaling:
             # Performs normalization on the columns provided.
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the column (s) you want to normalize (Press -1 to go back)  ").lower()
+                columns = input("Enter all the column (s) you want to normalize (Press -1 to go back)  ")
                 if columns == "-1":
                     break
                 for column in columns.split(" "):
@@ -71,7 +71,7 @@ class FeatureScaling:
                     print("\nString Columns are present. So, NOT possible.\nYou can try the first option though.")
                 
             elif choice==3:
-                Data_description.showDataset(self)
+                Data_description.show_dataset(self)
 
             else:
                 print("\nYou pressed the wrong key!! Try again..")
@@ -99,7 +99,7 @@ class FeatureScaling:
             # This is the basic approach to perform Standard Scaler on a set of data.
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the column (s) you want to normalize (Press -1 to go back)  ").lower()
+                columns = input("Enter all the column (s) you want to normalize (Press -1 to go back)  ")
                 if columns == "-1":
                     break
                 for column in columns.split(" "):
@@ -121,7 +121,7 @@ class FeatureScaling:
                 break
 
             elif choice==3:
-                Data_description.showDataset(self)
+                Data_description.show_dataset(self)
 
             else:
                 print("\nYou pressed the wrong key!! Try again..")
@@ -152,7 +152,7 @@ class FeatureScaling:
                 self.standardization()
 
             elif choice==3:
-                Data_description.showDataset(self)
+                Data_description.show_dataset(self)
             
             else:
                 print("\nWrong Integer value!! Try again..")
