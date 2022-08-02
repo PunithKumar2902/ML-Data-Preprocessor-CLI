@@ -41,3 +41,4 @@ class Data_input:
         data = self.to_lower_case(data)
 
         return data
+ 
